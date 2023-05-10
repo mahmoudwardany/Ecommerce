@@ -5,21 +5,23 @@ import { useRef, useState } from "react";
 import { useAuth } from "../context/context";
 import { Alert } from "react-bootstrap";
 import { toast } from "react-toastify";
+import NavbarAuth from "../components/NavbarAuth";
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 60vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-top: 2%;
 `;
 
 const Wrapper = styled.div`
-  width: 60%;
+  width: 90%;
   padding: 20px;
-  background-color: teal;
+  background: linear-gradient(to left, #2f3130,#3b2020,#511313);
   color: white;
-  ${mobile({ width: "75%" })}
+  ${mobile({ width: "90%" })}
 `;
 
 const Title = styled.h1`
@@ -40,21 +42,23 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 30%;
+  width: 10%;
   border: none;
   padding: 5px ;
   background-color: #000000;
-  color: teal;
+  color: #f8ffff;
   cursor: pointer;
   margin-bottom: 10px;
+  ${mobile({ width: "40%" })}
+
 `;
 
-const Links = styled.a`
-  margin: 5px 0px;
+const Links = styled.span`
+    margin: 5px 0px;
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
-  color:black;
+  color: black;
 `;
 
 const Login = () => {
@@ -69,7 +73,6 @@ const redirectPath=location.state?.path || '/ecommerce'
 const handleSubmit=async(e)=>{
   e.preventDefault()
   try {
-    
     setError('')
     setLoading(true)
     await login(emailRef.current.value,passwordRef.current.value)
@@ -83,12 +86,13 @@ const handleSubmit=async(e)=>{
 }
   return (
     <>
+    <NavbarAuth/>
     <Container>
-    <Wrapper>  
       
+    <Wrapper>  
+    
         <Title>SIGN IN</Title>
         {error && <Alert variant="danger">{error}</Alert>}
-
         <Form onSubmit={handleSubmit}>
           <Input type='email' placeholder="email"
           ref={emailRef}

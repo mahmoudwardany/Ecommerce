@@ -6,15 +6,20 @@ import Navbars from "../components/Navbars";
 import { mobile } from "../responsive";
 import { useDispatch, useSelector } from 'react-redux';
 import SummaryComp from '../components/SummaryComp';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { addtoCart, ClearCart, descressQuantity, removeFromCart } from '../state/cartSlice';
 import { Button } from 'react-bootstrap';
+import { useEffect } from 'react';
+import { auth } from '../firebase';
+import { useAuth } from '../context/context';
+import { memo } from 'react';
 
 const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
   padding: 10px;
+
   ${mobile({ padding: "10px" })}
 `;
 
@@ -62,14 +67,19 @@ const Product = styled.div`
 `;
 
 const ProductDetail = styled.div`
-  flex: 2;
+  flex: 1;
   display: flex;
+  border:2px solid #ccc ;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 10px;
+justify-content: center;
+align-items: center;
 `;
 
 const Image = styled.img`
   width: 150px;
   height: 150px;
-
+background-color: transparent;
 `;
 
 const Details = styled.div`
@@ -90,12 +100,21 @@ const PriceDetail = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: light;
+  color: black;
+  border: 2px solid #ccc;
+  
+  margin:5px 39px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+
 `;
 
 const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+
 `;
 
 const ProductAmount = styled.div`
@@ -117,7 +136,10 @@ const Hr = styled.hr`
 
 const Cart = () => {
 const cart=useSelector(state => state.cart.cartitem)
+const {currentUser}=useAuth()
 const dispatch=useDispatch()
+const navigate=useNavigate()
+
 const totalPrice=cart.reduce((acc,product)=>{
   acc +=product.price * product.cartQuantity
 return acc
@@ -125,9 +147,16 @@ return acc
 const handleDescred=(product)=>{
 dispatch(descressQuantity(product))
 }
+useEffect(() => {
+  auth.onAuthStateChanged(user => {
+      if (!currentUser) {
+        navigate  ('/login');
+      }
+  })
+})
+
   return (
     <Container>
-
       <Announcement/>
       <Navbars />
       <Wrapper>
@@ -139,12 +168,12 @@ dispatch(descressQuantity(product))
           </TopButton>
           <TopTexts>
           
-            <Button
+            {cart.length<1 ? null :(<Button
           variant='warning'
           onClick={()=> dispatch(ClearCart())}
   className='mx-sm-auto mx-md-auto mb-3 text-center '>
     Clear All Products
-    </Button>
+    </Button>) }
           </TopTexts>
         <Link to='/checkout' className='nav-link'>  
         <TopButton type="filled">
@@ -167,7 +196,6 @@ dispatch(descressQuantity(product))
       <b className='col-sm-12'>Product:</b> {product.title}
     </ProductName>
     <h6 className='col-sm-12'><b>Category:</b>{product.category}</h6>
-    <h6 className='col-sm-12'><b>Rating:</b>{product.rating.rate}</h6>
   </Details>
 </ProductDetail>
 <PriceDetail>
@@ -195,4 +223,4 @@ dispatch(descressQuantity(product))
   );
 };
 
-export default Cart;
+export default memo(Cart);

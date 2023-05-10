@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const Summary = styled.div`
   flex: 2;
-  border: 0.5px solid lightgray;
+  border:2px solid #ccc ;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 10px;
   border-radius: 10px;
   padding: 20px;
   height: 50vh;
+  margin-top: 10px;
 `;
 const SummaryTitle = styled.h1`
   font-weight: 200;
@@ -32,7 +35,7 @@ const SummaryComp = ({product}) => {
               <SummaryItemPrice>${product.price}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
-              <SummaryItemText>Qauntity</SummaryItemText>
+              <SummaryItemText>Quantity</SummaryItemText>
               <SummaryItemPrice>{product.cartQuantity }</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">

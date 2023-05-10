@@ -7,22 +7,25 @@ import { toast } from "react-toastify";
 
 import { Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import NavbarAuth from "../components/NavbarAuth";
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 70vh;
   background: white;
   background-size: cover;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+ 
 `;
 
 const Wrapper = styled.div`
-  width: 40%;
+  width: 90%;
   padding: 20px;
-  background-color: #1a1919;
+  background: linear-gradient(to left, #000000,#4f2323,#550101);
   color: white;
-  ${mobile({ width: "75%" })}
+  ${mobile({ width: "90%" })}
 `;
 
 const Title = styled.h1`
@@ -44,12 +47,15 @@ const Input = styled.input`
 
 
 const Button = styled.button`
-  width: 40%;
+  width: 10%;
   border: none;
-  padding: 15px 20px;
-  background-color: teal;
-  color: black;
+  padding: 5px ;
+  background-color: #fbffff;
+  color: #080808;
   cursor: pointer;
+  margin-bottom: 10px;
+  ${mobile({ width: "40%" })}
+
 `;
 const Links = styled.a`
   margin: 5px 0px;
@@ -77,14 +83,16 @@ try {
   toast.success(`You SignUp  Successfully`, {
     position: "top-right"})
   navigate('/login')
+
 } catch (error) {
-  setError('Failed to create an Account')
+  setError('Password must be more than 8 character')
 }
 setLoading(false)
 }
 
   return (
     <>
+    <NavbarAuth/>
     <Container>
       <Wrapper>        
         <Title>CREATE AN ACCOUNT</Title>
@@ -100,7 +108,7 @@ setLoading(false)
             ref={passwordConfirmRef}
           />
           <Button disabled={loading} className="mt-3">CREATE</Button>
-         
+        
         </Form>
         <Link to='/login' className="nav-link">
           <Links>Already Have  ACCOUNT</Links> 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Product from "./Product";
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { productFetch } from "../state/productSlice";
 import Categories from "./Categories";
 const Container = styled.div`
@@ -12,7 +12,7 @@ const Container = styled.div`
 
 `;
 const Products = () => {
-  const { products, isLoading } = useSelector((state) => state.products)
+  const { products, Loading } = useSelector((state) => state.products)
 
   const dispatch = useDispatch()
  
@@ -20,21 +20,18 @@ const Products = () => {
     dispatch(productFetch())
   }, [dispatch])
 
- 
-
   return (
     <>
     <Categories/>
     <Container>
-    {isLoading ? (
-                    <p className="fs-1 d-flex justify-content-center align-items-center">Loading....</p>
-            ) : (
-                products.map((item)=>(
+    {Loading &&<p className="fs-1 d-flex text-center justify-content-center align-items-center">Loading....</p>}
+            
+                {products.map((item)=>(
                   <Product key={item.id} item={item}/>
-                ))
-            )}
+                ))}
+            
     </Container></>
   );
 };
 
-export default Products;
+export default  Products;

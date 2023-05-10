@@ -1,9 +1,8 @@
 
-import { Route, Routes } from 'react-router-dom';
+import {BrowserRouter , Route, Routes } from 'react-router-dom';
 import './App.css';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
-import { BrowserRouter  } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from './pages/Register';
@@ -27,7 +26,7 @@ function App() {
   <Route path='cart' element={
   <RequireAuth> <Cart/></RequireAuth>
   }/>
-  <Route path='ecommerce/category/:item' element={<CategoriesItem/>}/>
+  <Route path='ecommerce/:item' element={<CategoriesItem/>}/>
   <Route path='register' element={<Register/>}/>
   <Route path='login' element={<Login/>}/>
   <Route path='checkout' element={<CheckOut/>}/>

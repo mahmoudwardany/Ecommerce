@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { addtoCart } from '../state/cartSlice';
@@ -91,6 +91,16 @@ transition: all 0.5s ease;
 transform: scale(1.1);
 }
 `
+const Bottom = styled.button`
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: ${(props) => props.type === "filled" && "none"};
+  margin-top: 10px;
+  background-color: ${(props) =>
+    props.type === "filled" ? "transparent" : "black"};
+  color: white;
+`;
 const CategoriesItem = () => {
 const [cat,setCat]=useState([])
   const param = useParams();
@@ -99,7 +109,6 @@ const dispatch=useDispatch()
     fetch(`https://fakestoreapi.com/products/category/${param.item}`)
     .then(res=>res.json())
     .then(json=>setCat(json))
-   
 }
 useEffect(() => {
   getCategory();
@@ -112,8 +121,7 @@ useEffect(() => {
     <ContainerParent>
 {cat.map((item)=>(
   <>
-  
-  <Container>
+  <Container key={item.id}>
       <Circle />
       <Image src={item.image} />
       <Info>
@@ -123,9 +131,14 @@ useEffect(() => {
         <Button variant="contained"onClick={() => dispatch(addtoCart(item))}>Add to Cart</Button>  
         </Icon>    
       </Info>
+      
     </Container>
+   
     </>
 ))}
+ <Link to={'/ecommerce'}>
+        <Bottom >Back to SHOPPING</Bottom>
+      </Link>
     </ContainerParent>
     </>
   )

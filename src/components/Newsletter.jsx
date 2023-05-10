@@ -1,10 +1,6 @@
  import SendIcon from '@mui/icons-material/Send'; 
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-
-const MySwal = withReactContent(Swal)
 const Container = styled.div`
   height: 60vh;
   background-color: #fcf5f5;

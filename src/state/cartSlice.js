@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 export const cartSlice = createSlice({
     initialState: {
-        cartitem: localStorage.getItem("cartitem")
+        cartitem:localStorage.getItem("cartitem")
             ? JSON.parse(localStorage.getItem("cartitem"))
             : [],
         cartQuantity: 0,
@@ -39,20 +39,18 @@ export const cartSlice = createSlice({
                 position: "top-right",
             });
         },
-        descressQuantity:(state,action)=>{
-const itemIndex=state.cartitem.findIndex(
-    cart=>cart.id === action.payload.id
-)
+descressQuantity:(state,action)=>{
+const itemIndex=state.cartitem.findIndex(cart=>cart.id === action.payload.id)
 if(state.cartitem[itemIndex].cartQuantity > 1){
-    console.log(state.cartitem[itemIndex].cartQuantity)
 state.cartitem[itemIndex].cartQuantity -=1
 localStorage.setItem("cartitem", JSON.stringify(state.cartitem));
-toast.info(`Descreased ${action.payload.title} cart quantity`, {
+toast.info(`Decreased ${action.payload.title} cart quantity`, {
     position: "bottom-left",
 });
    } else if(state.cartitem[itemIndex].cartQuantity === 1){
     const rmCart = state.cartitem.filter(
         (product) => product.id !== action.payload.id
+        
     );
     state.cartitem = rmCart;
     
@@ -69,7 +67,9 @@ toast.info(`Descreased ${action.payload.title} cart quantity`, {
             });
             localStorage.setItem("cartitem", JSON.stringify(state.cartitem));
         },
+       
+ 
     },
 });
-export const { addtoCart, removeFromCart, ClearCart ,descressQuantity} = cartSlice.actions;
+export const { filterProducts,addtoCart, removeFromCart, ClearCart ,descressQuantity} = cartSlice.actions;
 export default cartSlice.reducer;
