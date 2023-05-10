@@ -50,8 +50,8 @@ const Button = styled.button`
   width: 10%;
   border: none;
   padding: 5px ;
-  background-color: #fbffff;
-  color: #080808;
+  background: linear-gradient(to right, #211d1d,#4f2323,#c00f0f);
+  color: #fff;
   cursor: pointer;
   margin-bottom: 10px;
   ${mobile({ width: "40%" })}
@@ -61,6 +61,7 @@ const Links = styled.a`
   margin: 5px 0px;
   font-size: 12px;
   text-decoration: underline;
+  color:#fff;
   cursor: pointer;
 `;
 const Register = () => {

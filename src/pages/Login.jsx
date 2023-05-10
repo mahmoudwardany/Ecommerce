@@ -45,8 +45,8 @@ const Button = styled.button`
   width: 10%;
   border: none;
   padding: 5px ;
-  background-color: #000000;
-  color: #f8ffff;
+  background: linear-gradient(to right, #2f3130,#3b2020,#d71d1d);
+  color: #fff;
   cursor: pointer;
   margin-bottom: 10px;
   ${mobile({ width: "40%" })}
@@ -58,7 +58,7 @@ const Links = styled.span`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
-  color: black;
+  color: #fffbfb;
 `;
 
 const Login = () => {
