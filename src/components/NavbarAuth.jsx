@@ -32,8 +32,12 @@ const NavbarAuth = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ms-auto">
-                <Link to="/register" className='nav-link'>SIGN UP</Link>
-                <Link to="/login" className='nav-link'>LOGIN</Link>
+        <Link to="/register" className='nav-link'>
+                  <Links>SIGN UP</Links>
+                  </Link>
+                <Link to="/login" className='nav-link'>
+                  <Links>LOGIN</Links>
+                  </Link>
                 </Nav>
       </Navbar.Collapse>
     </Container>

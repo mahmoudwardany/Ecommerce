@@ -91,9 +91,7 @@ const handleSubmit=async(e)=>{
     <>
     <NavbarAuth/>
     <Container>
-      
     <Wrapper>  
-    
         <Title>SIGN IN</Title>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
