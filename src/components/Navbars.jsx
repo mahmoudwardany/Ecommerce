@@ -19,6 +19,12 @@ const ContainerParent = styled.div`
   z-index: 3;
   box-shadow: 5px 5px 5px #ccc;
 `;
+const Links=styled.h3`
+  letter-spacing: 10px;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+`
 
 const Navbars = () => {
   const [error, seterror] = useState('')
@@ -37,7 +43,10 @@ const handleLogOut=async()=>{
 <ContainerParent>
     <Navbar collapseOnSelect bg="light"  expand="lg">
     <Container>
-      <Link className='nav-link' to="/ecommerce">ONLINESHOPPING</Link>
+      
+      <Link className='nav-link '   to="/ecommerce">
+        <Links>ONLINESHOPPING</Links>
+      </Link>
     
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

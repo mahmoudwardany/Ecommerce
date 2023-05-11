@@ -1,4 +1,8 @@
-body{
-  background-color: teal;
-  color: #000;
+.img1{
+  object-fit:fill;
+}
+@media only screen and (max-width: 767px) {
+  .slideImg{
+  display: none !important;
+  }
 }
