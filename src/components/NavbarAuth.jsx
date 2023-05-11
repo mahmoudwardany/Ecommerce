@@ -17,6 +17,7 @@ const Links=styled.h3`
   font-size: 2rem;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bolder;
+  text-shadow: 5px 5px 5px #ccc;
   ${mobile({fontSize: "1rem",letterSpacing:"7px",fontWeight: "bolder"})}
 `
 const NavbarAuth = () => {
