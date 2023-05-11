@@ -25,10 +25,15 @@ const Links=styled.h3`
   font-family: 'Times New Roman', Times, serif;
   font-weight: bolder;
   text-shadow: 5px 5px 5px #ccc;
-
   ${mobile({fontSize: "1rem",letterSpacing:"7px",fontWeight: "bolder"})}
 `
-
+const LinksAuth=styled.h4`
+  font-size: 1,1rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  text-shadow: 5px 5px 5px #ccc;
+  ${mobile({fontSize: "1rem",letterSpacing:"7px",fontWeight: "bolder"})}
+`
 const Navbars = () => {
   const [error, seterror] = useState('')
   const navigate=useNavigate()
@@ -69,10 +74,10 @@ const handleLogOut=async()=>{
       <>
       <Nav>
                 <Link to="/register" className='nav-link'>
-                  <Links>SIGN UP</Links>
+                  <LinksAuth>SIGN UP</LinksAuth>
                   </Link>
                 <Link to="/login" className='nav-link'>
-                  <Links>LOGIN</Links>
+                  <LinksAuth>LOGIN</LinksAuth>
                   </Link>
                 </Nav>
                 </>
