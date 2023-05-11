@@ -16,7 +16,7 @@ const Container = styled.div`
 const Button = styled.button`
     border:none;
     padding: 10px;
-    background-color: teal;
+    background: linear-gradient(to left, #2f3130,#3b2020,#511313);
     color:white;
     cursor: pointer;
     font-weight: 600;

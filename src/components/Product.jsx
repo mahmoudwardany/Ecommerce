@@ -5,13 +5,13 @@ import { useAuth } from '../context/context';
 
 
   const Info = styled.div`
-    opacity: 0;
+    opacity: 0.2;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #2f3130,#3b2020,#511313);
     z-index: 3;
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ import { useAuth } from '../context/context';
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5fbfd;
+    background: #f3f3f3;
     box-shadow: 5px 5px 5px #ccc;
     color:#fff;
     position: relative;
@@ -84,8 +84,8 @@ import { useAuth } from '../context/context';
 `
 const Btn= styled.button`
    border: none;
-    background-color: green;
-    color: white;
+   background: linear-gradient(to right, #000000,#0f0404,#d11c1c);
+       color: white;
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;
@@ -102,7 +102,7 @@ const Btn= styled.button`
         <Circle />
         <Image src={item.image} />
         <Info>
-          <Title>Title: {item.title}</Title>
+          <Title>Title: {item.title.split(" ").slice(0,2).join(' ')}</Title>
           <Price>Price:{item.price} $</Price>
           <Icon>
           <Btn disabled={!currentUser} onClick={() => dispatch(addtoCart(item))}>Add to Cart</Btn>  
