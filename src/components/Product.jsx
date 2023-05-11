@@ -97,7 +97,6 @@ const Btn= styled.button`
   const dispatch=useDispatch()
     return (
       <>
-          
       <Container>
         <Circle />
         <Image src={item.image} />

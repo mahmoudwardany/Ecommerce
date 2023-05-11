@@ -12,14 +12,22 @@ const ContainerParent = styled.div`
   z-index: 3;
   box-shadow: 5px 5px 5px #ccc;
 `;
-
+const Links=styled.h3`
+  letter-spacing: 10px;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  ${mobile({fontSize: "1,2rem",letterSpacing:"4px"})}
+`
 const NavbarAuth = () => {
     
   return (
     <ContainerParent>
     <Navbar collapseOnSelect bg="light"  expand="lg">
     <Container>
-      <Link className='nav-link' to="/ecommerce">ONLINESHOPPING</Link>    
+      <Link className='nav-link' to="/ecommerce">
+        <Links>ONLINESHOPPING</Links>
+      </Link>    
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ms-auto">

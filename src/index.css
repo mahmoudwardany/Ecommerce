@@ -1,8 +1,17 @@
 .img1{
   object-fit:fill;
 }
+
+body{
+  scrollbar-color: #d11c1c
+}
+
 @media only screen and (max-width: 767px) {
   .slideImg{
   display: none !important;
   }
+}
+.navbar-toggler ,.navbar-nav{
+  text-align: center;
+  margin: auto;
 }
