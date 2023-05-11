@@ -14,6 +14,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 2%;
+
 `;
 
 const Wrapper = styled.div`
@@ -21,6 +22,8 @@ const Wrapper = styled.div`
   padding: 20px;
   background: linear-gradient(to left, #2f3130,#3b2020,#511313);
   color: white;
+  box-shadow:3px 3px 5px #511313;
+
   ${mobile({ width: "90%" })}
 `;
 

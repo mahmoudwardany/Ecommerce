@@ -26,6 +26,8 @@ const Wrapper = styled.div`
   background: linear-gradient(to left, #000000,#4f2323,#550101);
   color: white;
   ${mobile({ width: "90%" })}
+  box-shadow:3px 3px 5px #511313;
+
 `;
 
 const Title = styled.h1`

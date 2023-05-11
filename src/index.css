@@ -2,9 +2,7 @@
   object-fit:fill;
 }
 
-body{
-  scrollbar-color: #d11c1c
-}
+
 
 @media only screen and (max-width: 767px) {
   .slideImg{
