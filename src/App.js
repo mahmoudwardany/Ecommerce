@@ -1,5 +1,5 @@
 
-import {BrowserRouter , Route, Routes } from 'react-router-dom';
+import {HashRouter , Route, Routes } from 'react-router-dom';
 import './App.css';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
@@ -16,7 +16,7 @@ function App() {
   return (
   
       <div className='App'>
-    <BrowserRouter>
+    <HashRouter>
     <ToastContainer/>
    <AuthProvider>
 <Routes>
@@ -33,7 +33,7 @@ function App() {
 
 </Routes>
 </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
     </div>
     
     
