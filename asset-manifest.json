@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ecommerce/static/css/main.ec3944b6.css",
-    "main.js": "/ecommerce/static/js/main.fa66730b.js",
+    "main.js": "/ecommerce/static/js/main.fad82352.js",
     "static/media/1.webp": "/ecommerce/static/media/1.b8da1178654a5fbaa2f5.webp",
     "static/media/2.webp": "/ecommerce/static/media/2.a423ba5076c29c670d33.webp",
     "static/media/portrait-handsome-smiling-stylish-young-man-model-dressed-jeans-clothes-fashion-man_158538-5030.webp": "/ecommerce/static/media/portrait-handsome-smiling-stylish-young-man-model-dressed-jeans-clothes-fashion-man_158538-5030.d410e0b531cb1146e8b9.webp",
     "index.html": "/ecommerce/index.html",
     "main.ec3944b6.css.map": "/ecommerce/static/css/main.ec3944b6.css.map",
-    "main.fa66730b.js.map": "/ecommerce/static/js/main.fa66730b.js.map"
+    "main.fad82352.js.map": "/ecommerce/static/js/main.fad82352.js.map"
   },
   "entrypoints": [
     "static/css/main.ec3944b6.css",
-    "static/js/main.fa66730b.js"
+    "static/js/main.fad82352.js"
   ]
 }
